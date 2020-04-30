@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float rotateSensitivity;
 
+    [SerializeField]
+    Transform bodyPrefab;
+    [SerializeField]
+    Transform applePrefab;
+
     void MoveFoward()
     {
         transform.position += transform.up * moveSpd * Time.deltaTime;
@@ -60,6 +65,26 @@ public class PlayerController : MonoBehaviour
                 currentRotate -= rotateSensitivity * Time.deltaTime;
             if (rotate.x < 0)
                 currentRotate += rotateSensitivity * Time.deltaTime;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "Apple")
+        {
+            Destroy(collision.gameObject);
+            Vector2 randomPos = new Vector2(Random.Range(-2.4f, 2.4f), Random.Range(-4.7f, 4.7f));
+            Instantiate(applePrefab, randomPos, Quaternion.identity);
+
+            Transform currentPos;
+            if (body_parts.Count == 0)
+                currentPos = transform;
+            else
+                currentPos = body_parts[body_parts.Count - 1];
+                
+            Transform newBodyPart = Instantiate(bodyPrefab, currentPos.position, Quaternion.identity) as Transform;
+            body_parts.Add(newBodyPart);
+            newBodyPart.GetComponent<SnakeBody>().SetTarget(currentPos);
         }
     }
 }
