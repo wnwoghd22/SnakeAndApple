@@ -13,32 +13,38 @@ public class PlayerController : MonoBehaviour
     float currentRotate = 1;
     [SerializeField]
     float rotateSensitivity;
+    bool pause;
 
     [SerializeField]
     Transform bodyPrefab;
     [SerializeField]
     Transform applePrefab;
 
-    void MoveFoward()
+    void MoveFoward() => transform.position += transform.up * moveSpd * Time.deltaTime;
+    void Rotate() => transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, currentRotate));
+
+    public void Pause()
     {
-        transform.position += transform.up * moveSpd * Time.deltaTime;
+        pause = true;
+        for(int i = 0; i < body_parts.Count; i++)
+        {
+            body_parts[i].gameObject.GetComponent<SnakeBody>().Pause();
+        }
     }
-    void Rotate()
-    {
-        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, currentRotate));
-    }
-    
 
     // Start is called before the first frame update
     void Start()
     {
-
+        pause = false;
     }
 
     private void FixedUpdate()
     {
-        MoveFoward();
-        Rotate();
+        if(!pause)
+        {
+            MoveFoward();
+            Rotate();
+        }
     }
 
     // Update is called once per frame

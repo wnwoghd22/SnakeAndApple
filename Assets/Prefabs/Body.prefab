@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 899462290710760161}
   - component: {fileID: 9138065973806661351}
   - component: {fileID: 2907135437154632238}
-  - component: {fileID: 8005463792630383448}
   - component: {fileID: 3332108966610469793}
+  - component: {fileID: 593592429661603673}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,30 +105,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!233 &8005463792630383448
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6559055598930467760}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: -2.218975}
-  m_ConnectedAnchor: {x: -3, y: -2.2118976}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
 --- !u!114 &3332108966610469793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,3 +118,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overTime: 0.25
+--- !u!68 &593592429661603673
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6559055598930467760}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.5427184, y: 2.4606931}
+  - {x: -2.2989464, y: 1.891253}
+  - {x: -2.711382, y: 1.2787962}
+  - {x: -2.9528642, y: 0.7389879}
+  - {x: -3.0158591, y: -0.108549595}
+  - {x: -2.7372074, y: -1.0691619}
+  - {x: -2.0914984, y: -1.9074917}
+  - {x: -1.0382342, y: -2.49439}
+  - {x: -0.0058698654, y: -2.6748443}
+  - {x: 0.9642291, y: -2.532251}
+  - {x: 1.6315603, y: -2.2149992}
+  - {x: 2.204733, y: -1.7728782}
+  - {x: 2.7078152, y: -1.1803651}
+  - {x: 3.03118, y: -0.110526085}
+  - {x: 2.8971934, y: 0.91861725}
+  - {x: 2.4173832, y: 1.765362}
+  - {x: 1.5475821, y: 2.4485695}
