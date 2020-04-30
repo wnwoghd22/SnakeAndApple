@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public List<Transform> body_parts = new List<Transform>();
+
     [SerializeField]
     float moveSpd;
 
@@ -25,15 +27,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.rotation = Quaternion.Euler(0, 0, 90);
-        currentRotate = transform.rotation.z;
+
     }
 
     private void FixedUpdate()
     {
         MoveFoward();
         Rotate();
-        Debug.Log(transform.rotation.z);
     }
 
     // Update is called once per frame
